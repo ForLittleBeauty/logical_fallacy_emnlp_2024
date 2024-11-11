@@ -15,21 +15,21 @@ The paper works logical fallacy detection and classification.
 
 ## Dataset Description
 
-We use four datasets for experiments: **Argotario** (Habernal et al., 2017), **Reddit** (Sahai et al., 2021), **Climate** (Alhindi et al., 2022), **Logic** (Jin et al., 2022). The datasets after processing and their train/dev/test splits are saved in the _processed_datasets_ folder.
+We use four datasets for experiments: **Argotario** (Habernal et al., 2017), **Reddit** (Sahai et al., 2021), **Climate** (Alhindi et al., 2022), **Logic** (Jin et al., 2022). <br/>The datasets after processing and their train/dev/test splits are saved in the _processed_datasets_ folder.
 
 <br/>
 
 ## Code Description
 
 * **construct_logical_structure_tree.py**: the code for constructing the logical structure tree
-* **llama_identify_baseline.py**: the code for the baseline of logical fallacy detection using Llama-2 model
-* **llama_identify_structure.py**: the code for logical fallacy detection via logical structure tree using Llama-2 model
-* **llama_classify_baseline.py**: the code for the baseline of logical fallacy classification using Llama-2 model
-* **llama_classify_structure.py**: the code for logical fallacy classification via logical structure tree using Llama-2 model
-* **flan_t5_identify_baseline.py**: the code for the baseline of logical fallacy detection using Flan_T5 model
-* **flan_t5_identify_structure.py**: the code for logical fallacy detection via logical structure tree using Flan_T5 model
-* **flan_t5_classify_baseline.py**: the code for the baseline of logical fallacy classification using Flan_T5 model
-* **flan_t5_classify_structure.py**: the code for logical fallacy classification via logical structure tree using Flan_T5 model
+* **llama_identify_baseline.py**: baseline of logical fallacy detection using Llama-2 model
+* **llama_identify_structure.py**: logical fallacy detection via logical structure tree using Llama-2 model
+* **llama_classify_baseline.py**: baseline of logical fallacy classification using Llama-2 model
+* **llama_classify_structure.py**: logical fallacy classification via logical structure tree using Llama-2 model
+* **flan_t5_identify_baseline.py**: baseline of logical fallacy detection using Flan-T5 model
+* **flan_t5_identify_structure.py**: logical fallacy detection via logical structure tree using Flan-T5 model
+* **flan_t5_classify_baseline.py**: baseline of logical fallacy classification using Flan-T5 model
+* **flan_t5_classify_structure.py**: logical fallacy classification via logical structure tree using Flan-T5 model
 
 
 <br/>
