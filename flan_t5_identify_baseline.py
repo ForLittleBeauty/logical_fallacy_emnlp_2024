@@ -1,6 +1,6 @@
 
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '7'
+# os.environ["CUDA_VISIBLE_DEVICES"] = '7'
 os.environ["CUBLAS_WORKSPACE_CONFIG"] = ':4096:8'
 
 
@@ -46,7 +46,7 @@ from nltk.tree import Tree, ParentedTree
 
 ''' hyper-parameters '''
 
-dataset_name = "argotario"
+dataset_name = "reddit"
 max_source_length = 512
 max_target_length = 256
 no_decay = ['bias', 'layer_norm.weight']
@@ -224,6 +224,8 @@ def convert_label(text):
     return -1
 
 
+from tqdm import tqdm
+
 def evaluate(model, eval_dataloader, verbose):
 
     model.eval()
@@ -233,7 +235,7 @@ def evaluate(model, eval_dataloader, verbose):
 
     step_error = []
 
-    for step, batch in enumerate(eval_dataloader):
+    for step, batch in enumerate(tqdm(eval_dataloader, desc="Evaluating", unit="batch")):
 
         source_input_ids = batch["source_input_ids"][0]
         target_input_ids = batch["target_input_ids"][0]
@@ -421,6 +423,7 @@ for epoch_i in range(num_epochs):
 # test
 
 model.load_state_dict(torch.load("./saved_models/flan_t5_identify_baseline.ckpt", map_location=device))
+print("Model Loaded")
 fallacy_precision, fallacy_recall, fallacy_F, micro_F = evaluate(model, test_dataloader, verbose=1)
 
 

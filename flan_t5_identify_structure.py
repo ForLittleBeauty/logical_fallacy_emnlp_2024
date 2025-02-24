@@ -1,6 +1,6 @@
 
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '2'
+#os.environ["CUDA_VISIBLE_DEVICES"] = '2'
 os.environ["CUBLAS_WORKSPACE_CONFIG"] = ':4096:8'
 
 
@@ -46,7 +46,7 @@ from nltk.tree import Tree, ParentedTree
 
 ''' hyper-parameters '''
 
-dataset_name = "argotario"
+dataset_name = "reddit"
 max_source_length = 511
 max_target_length = 256
 no_decay = ['bias', 'layer_norm.weight', 'LayerNorm.weight']
@@ -714,6 +714,7 @@ def evaluate(model, eval_dataloader, verbose):
         fallacy_F = precision_recall_fscore_support(true_label, prediction, average='binary')[2]
         micro_F = precision_recall_fscore_support(true_label, prediction, average='micro')[2]
 
+        print(true_label,prediction)
         if verbose:
             print("Fallacy: ", precision_recall_fscore_support(true_label, prediction, average='binary'))
             print("Micro: ", precision_recall_fscore_support(true_label, prediction, average='micro'))
